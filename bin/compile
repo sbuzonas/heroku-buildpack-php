@@ -10,11 +10,12 @@ install_ext () {
     local ext_so=
     local ext_dir=$(basename $(php-config --extension-dir))
     local ext_url=
+    local opt_extglob=$(shopt -p extglob)
     if [[ -f "$ext_ini" || -f "$cust_ini" ]]; then
 	if [[ -f "$cust_ini" ]]; then
 	    ext_ini=$cust_ini
-	    ext_url="https://s3.amazonaws.com/${S3_BUCKET}${S3_PREFIX:-/}"
-	    echo "Using custom extension URL: ${ext_url}/extensions/${ext_dir}/${ext}.tar.gz"
+	    ext_url="https://s3.amazonaws.com/${S3_BUCKET}${S3_PREFIX:-}"
+	    echo "- Using custom extension URL: ${ext_url}/extensions/${ext_dir}/${ext}.tar.gz"
 	else
 	    ext_url="${S3_URL}"
 	fi
