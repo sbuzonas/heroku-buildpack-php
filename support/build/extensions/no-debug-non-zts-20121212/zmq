@@ -15,7 +15,7 @@ dep_dirname=zmq-${dep_version}
 dep_archive_name=${dep_dirname}.tgz
 dep_url=http://pecl.php.net/get/${dep_archive_name}
 
-status "-----> Building ext/zmq ${dep_version}..."
+echo "-----> Building ext/zmq ${dep_version}..."
 
 curl -L ${dep_url} | tar xz
 
@@ -29,4 +29,4 @@ rm -rf ${OUT_PREFIX}/*
 make install -s
 popd
 
-status "-----> Done."
+echo "-----> Done."
