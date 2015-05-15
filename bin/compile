@@ -14,6 +14,7 @@ install_ext () {
 	if [[ -f "$cust_ini" ]]; then
 	    ext_ini=$cust_ini
 	    ext_url="https://s3.amazonaws.com/${S3_BUCKET}${S3_PREFIX:-/}"
+	    echo "Using custom extension URL: ${ext_url}/extensions/${ext_dir}/${ext}.tar.gz"
 	else
 	    ext_url="${S3_URL}"
 	fi
